@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WAMPIONS LEAGUE // THE ULTIMATE PRODUCTION CENTER</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #030303;
+            color: #f5f5f7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, .heading-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* Premium Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #030303;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1c1c1e;
+            border-radius: 99px;
+            border: 3px solid #030303;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2c2c2e;
+        }
+
+        /* Dynamic Cosmic Canvas Mesh Animation */
+        .gradient-mesh {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 15% 20%, rgba(16, 185, 129, 0.12) 0%, transparent 45%),
+                radial-gradient(circle at 85% 15%, rgba(245, 158, 11, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 50% 75%, rgba(14, 165, 233, 0.08) 0%, transparent 50%);
+            filter: blur(100px);
+            z-index: 0;
+            pointer-events: none;
+            animation: pulse-mesh 12s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulse-mesh {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.08) translateY(20px); }
+        }
+
+        /* Glassmorphism Surface Architecture */
+        .glass-card {
+            background: rgba(18, 18, 20, 0.55);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glass-card:hover {
+            border-color: rgba(255, 255, 255, 0.09);
+            background: rgba(24, 24, 28, 0.7);
+            transform: translateY(-4px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Interactive Dynamic Highlight Row */
+        .active-row {
+            background: linear-gradient(90deg, rgba(16, 185, 129, 0.08) 0%, rgba(255,255,255,0.01) 100%) !important;
+            border-left: 4px solid #10b981 !important;
+        }
+
+        /* Fluid Slide-In Reveal Transitions */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Dynamic Badge Pulse Effect */
+        .live-pulse {
+            position: relative;
+        }
+        .live-pulse::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: inherit;
+            border-radius: inherit;
+            animation: pulse-ring 2s cubic-bezier(0.215, 0.610, 0.355, 1) infinite;
+            z-index: -1;
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(0.95); opacity: 0.8; }
+            50% { transform: scale(1.3); opacity: 0; }
+            100% { transform: scale(1.3); opacity: 0; }
+        }
+
+        /* Custom Interactive Tab Buttons */
+        .tab-btn.active-tab {
+            background-color: rgba(255, 255, 255, 0.07);
+            color: #ffffff;
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+    </style>
+</head>
+<body class="relative min-h-screen selection:bg-emerald-500/30 selection:text-white">
+
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <div class="gradient-mesh"></div>
+        <div class="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:50px_50px]"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black pointer-events-none"></div>
+    </div>
+
+    <div id="preloader" class="fixed inset-0 bg-[#030303] z-[100] flex flex-col items-center justify-center transition-opacity duration-700 ease-in-out">
+        <div class="flex items-center gap-3 mb-6">
+            <div class="w-3 h-3 rounded-full bg-emerald-500 animate-bounce"></div>
+            <div class="w-3 h-3 rounded-full bg-amber-400 animate-bounce [animation-delay:0.2s]"></div>
+            <div class="w-3 h-3 rounded-full bg-sky-400 animate-bounce [animation-delay:0.4s]"></div>
+        </div>
+        <div class="text-[10px] font-bold uppercase tracking-[0.5em] text-[#86868b] mb-4">Compiling Full-Fledged Metric Workspace</div>
+        <div class="w-64 h-[1px] bg-white/5 rounded-full overflow-hidden">
+            <div id="progress-bar" class="h-full bg-gradient-to-r from-emerald-500 via-amber-400 to-sky-400 w-0 transition-all duration-300 ease-out"></div>
+        </div>
+    </div>
+
+    <nav class="sticky top-0 z-50 bg-black/60 backdrop-blur-xl border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-10">
+                <a href="#" class="font-extrabold text-white tracking-tighter text-2xl flex items-center gap-2.5 group heading-font">
+                    <span class="bg-gradient-to-tr from-emerald-400 to-teal-500 w-3.5 h-3.5 rounded-br-none rounded-full group-hover:rotate-90 transition-transform duration-500"></span>
+                    WAMPIONS <span class="font-light text-[#86868b]">LEAGUE</span>
+                </a>
+                <div class="hidden lg:flex items-center gap-8 text-xs font-semibold uppercase tracking-wider text-[#86868b]">
+                    <a href="#overview" class="hover:text-white transition-colors flex items-center gap-1.5"><i class='bx bx-grid-alt text-base'></i> Overview</a>
+                    <a href="#arena-data-hub" class="hover:text-white transition-colors flex items-center gap-1.5"><i class='bx bx-data text-base'></i> Live Data Hub</a>
+                    <a href="#roster-breakdown" class="hover:text-white transition-colors flex items-center gap-1.5"><i class='bx bx-group text-base'></i> Roster Matrix</a>
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="flex items-center gap-2 bg-emerald-500/10 px-3.5 py-1.5 rounded-full border border-emerald-500/20">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 live-pulse"></span>
+                    <span class="text-[11px] font-bold uppercase tracking-widest text-emerald-400">DATABASE LOGGED // 5.26.26</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header id="overview" class="relative max-w-7xl mx-auto px-6 pt-20 pb-16 text-center z-10">
+        <div class="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-1.5 rounded-full text-xs font-medium text-[#aeaeaf] mb-6 shadow-inner">
+            <span class="text-emerald-400 font-bold uppercase tracking-widest">WA GAMES 26/27</span>
+            <span class="text-white/20">|</span>
+            <span class="text-white font-medium uppercase tracking-wider">Session Finalization</span>
+        </div>
+        
+        <h1 class="text-5xl md:text-8xl font-black text-white tracking-tight leading-none mb-8 uppercase">
+            THE ABSOLUTE BRACKET<br>
+            <span class="bg-clip-text text-transparent bg-gradient-to-r from-white via-[#f5f5f7] to-[#86868b]">PERFORMANCE REPORT.</span>
+        </h1>
+        
+        <p class="max-w-3xl mx-auto text-base md:text-lg font-normal text-[#86868b] leading-relaxed mb-12">
+            A high-fidelity evaluation framework cataloging detailed metric breakdowns, physical profile values, and real-time attribute maps derived from the official 14 - 12 tournament scoreline.
+        </p>
+
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto text-left">
+            <div class="glass-card p-6 rounded-3xl relative overflow-hidden group">
+                <div class="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-emerald-500 to-transparent opacity-60"></div>
+                <div class="flex items-center justify-between text-[#86868b] mb-3"><span class="text-[10px] font-bold uppercase tracking-widest">TOTAL ACCUMULATED SCORING</span><i class='bx bx-football text-lg'></i></div>
+                <span class="text-5xl font-black text-white block tracking-tighter heading-font" data-target="26">0</span>
+                <span class="text-xs text-[#86868b] mt-1.5 block">Goals registered across all fields</span>
+            </div>
+            <div class="glass-card p-6 rounded-3xl relative overflow-hidden group">
+                <div class="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-amber-500 to-transparent opacity-60"></div>
+                <div class="flex items-center justify-between text-amber-400/80 mb-3"><span class="text-[10px] font-bold uppercase tracking-widest text-[#86868b]">UNCONTESTED MATCH MVP</span><i class='bx bx-crown text-lg'></i></div>
+                <span class="text-4xl font-black text-amber-400 block tracking-tighter heading-font">ARYAN</span>
+                <span class="text-xs text-[#86868b] mt-2 block">11 Net G/A Point Engagements</span>
+            </div>
+            <div class="glass-card p-6 rounded-3xl relative overflow-hidden group">
+                <div class="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-sky-500 to-transparent opacity-60"></div>
+                <div class="flex items-center justify-between text-[#86868b] mb-3"><span class="text-[10px] font-bold uppercase tracking-widest">PRIMARY BOX INTERCEPTIONS</span><i class='bx bx-shield-quarter text-lg'></i></div>
+                <span class="text-5xl font-black text-sky-400 block tracking-tighter heading-font" data-target="6">0</span>
+                <span class="text-xs text-[#86868b] mt-1.5 block">Verified Critical Saves by Maanas</span>
+            </div>
+            <div class="glass-card p-6 rounded-3xl relative overflow-hidden group">
+                <div class="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-teal-400 to-transparent opacity-60"></div>
+                <div class="flex items-center justify-between text-[#86868b] mb-3"><span class="text-[10px] font-bold uppercase tracking-widest">CHAMPIONSHIP SQUAD DIFFERENTIAL</span><i class='bx bx-trophy text-lg'></i></div>
+                <span class="text-5xl font-black text-emerald-400 block tracking-tighter heading-font">14 - 12</span>
+                <span class="text-xs text-[#86868b] mt-1.5 block">Final verified margin closure</span>
+            </div>
+        </div>
+    </header>
+
+    <main id="arena-data-hub" class="max-w-7xl mx-auto px-6 pb-24 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            
+            <section class="lg:col-span-7 space-y-4 reveal">
+                <div class="flex flex-col sm:flex-row justify-between sm:items-center px-2 gap-3">
+                    <div>
+                        <h2 class="text-xs font-bold uppercase tracking-[0.3em] text-[#86868b] mb-1">Athlete Databank Registry</h2>
+                        <h3 class="text-2xl font-bold text-white uppercase heading-font">Wallon D’or Score Metrics</h3>
+                    </div>
+                    <div class="flex bg-white/5 p-1 rounded-xl border border-white/5 text-[11px] font-bold uppercase tracking-wider">
+                        <button onclick="filterRegistry('all')" id="tab-all" class="tab-btn active-tab px-3 py-1.5 rounded-lg transition-all">All</button>
+                        <button onclick="filterRegistry('champ')" id="tab-champ" class="tab-btn px-3 py-1.5 rounded-lg text-[#86868b] hover:text-white transition-all">Winners</button>
+                        <button onclick="filterRegistry('silver')" id="tab-silver" class="tab-btn px-3 py-1.5 rounded-lg text-[#86868b] hover:text-white transition-all">Challengers</button>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-3xl overflow-hidden border border-white/5 shadow-2xl">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-xs border-collapse">
+                            <thead>
+                                <tr class="text-[#86868b] font-bold uppercase tracking-wider border-b border-white/5 bg-black/50 text-[10px]">
+                                    <th class="py-4 px-5 text-center w-14">Rank</th>
+                                    <th class="py-4 px-4">Profile Identity</th>
+                                    <th class="py-4 px-4">Stat Volume</th>
+                                    <th class="py-4 px-4 text-center w-24">Allocation</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ranking-table-body" class="divide-y divide-white/5 font-medium text-sm">
+                                </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="bg-white/[0.02] border border-white/5 rounded-2xl p-4 flex items-center gap-3 text-xs text-[#86868b]">
+                    <i class='bx bx-info-circle text-lg text-emerald-400' ></i>
+                    <span>Click any individual line entry across the board database matrix above to hot-swap and view complete engine-calculated OVR arrays.</span>
+                </div>
+            </section>
+
+            <aside class="lg:col-span-5 lg:sticky lg:top-24 space-y-6 reveal">
+                <div class="px-2">
+                    <h2 class="text-xs font-bold uppercase tracking-[0.3em] text-[#86868b]">Hardware Calculation Display</h2>
+                </div>
+
+                <div class="glass-card p-8 rounded-[32px] border border-white/10 shadow-3xl relative overflow-hidden bg-gradient-to-b from-[#151517]/90 to-[#0a0a0b]/40">
+                    <div id="hud-accent-glow" class="absolute -top-24 -right-24 w-48 h-48 bg-emerald-500/5 rounded-full blur-3xl transition-all duration-700"></div>
+                    
+                    <div class="flex justify-between items-start mb-8 relative z-10">
+                        <div>
+                            <span id="hud-pos" class="text-[10px] font-black uppercase tracking-widest text-[#86868b] bg-white/5 border border-white/15 px-3 py-1 rounded-md">GK</span>
+                            <h3 id="hud-name" class="text-3xl font-black text-white mt-3 tracking-tight heading-font">Prithiv</h3>
+                            <span id="hud-tier" class="text-xs text-emerald-400 font-medium block mt-1">Championship Winning Element</span>
+                        </div>
+                        
+                        <div class="text-center bg-black/70 border border-white/5 px-5 py-4 rounded-2xl min-w-[90px] shadow-2xl">
+                            <span class="block text-[9px] font-bold tracking-widest text-[#86868b] uppercase mb-0.5">OVERALL</span>
+                            <span id="hud-ovr" class="text-4xl font-black tracking-tighter heading-font text-white">76</span>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4 border-t border-white/5 pt-6 relative z-10" id="hud-stats-container">
+                        </div>
+
+                    <div class="mt-8 bg-black/60 border border-white/5 p-4 rounded-2xl relative z-10">
+                        <div class="flex items-center gap-1.5 text-[10px] uppercase font-bold tracking-wider text-[#86868b] mb-1.5">
+                            <i class='bx bx-comment-detail text-xs text-emerald-400'></i>
+                            <span>Registry Performance Narrative</span>
+                        </div>
+                        <p id="hud-verdict" class="text-xs text-[#aeaeaf] leading-relaxed italic">
+                            "System loading sequence..."
+                        </p>
+                    </div>
+                </div>
+            </aside>
+
+        </div>
+
+        <section id="roster-breakdown" class="mt-24 pt-12 border-t border-white/5 reveal">
+            <div class="mb-8">
+                <h2 class="text-xs font-bold uppercase tracking-[0.3em] text-[#86868b] mb-1">Squad Vector Validation</h2>
+                <h3 class="text-3xl font-black text-white uppercase tracking-tight heading-font">The Championship Winning Bracket</h3>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="glass-card p-6 rounded-2xl relative overflow-hidden border-l-2 border-l-emerald-500">
+                    <span class="text-[10px] font-bold uppercase text-[#86868b] tracking-wider block mb-1">Position Variant: GK</span>
+                    <h4 class="text-xl font-bold text-white mb-2 heading-font">Prithiv</h4>
+                    <p class="text-xs text-[#86868b] leading-relaxed">Maintained solid goal area metrics alongside adding two independent forward attacking conversions.</p>
+                    <div class="mt-4 flex gap-4 text-[11px] font-semibold text-emerald-400"><span class="bg-emerald-500/10 px-2 py-0.5 rounded">2 Goals</span><span class="bg-white/5 px-2 py-0.5 rounded text-zinc-400">76 OVR</span></div>
+                </div>
+                <div class="glass-card p-6 rounded-2xl relative overflow-hidden border-l-2 border-l-emerald-500">
+                    <span class="text-[10px] font-bold uppercase text-[#86868b] tracking-wider block mb-1">Position Variant: ST</span>
+                    <h4 class="text-xl font-bold text-white mb-2 heading-font">Mohith</h4>
+                    <p class="text-xs text-[#86868b] leading-relaxed">Secured extreme final third productivity, netting 9 execution sequences to close as top scorer.</p>
+                    <div class="mt-4 flex gap-4 text-[11px] font-semibold text-emerald-400"><span class="bg-emerald-500/10 px-2 py-0.5 rounded">9 Goals</span><span class="bg-white/5 px-2 py-0.5 rounded text-zinc-400">85 OVR</span></div>
+                </div>
+                <div class="glass-card p-6 rounded-2xl relative overflow-hidden border-l-2 border-l-emerald-500">
+                    <span class="text-[10px] font-bold uppercase text-[#86868b] tracking-wider block mb-1">Position Variant: RB</span>
+                    <h4 class="text-xl font-bold text-white mb-2 heading-font">Tanush</h4>
+                    <p class="text-xs text-[#86868b] leading-relaxed">High physical output across flank zones, delivering continuous wing possession control and two goals.</p>
+                    <div class="mt-4 flex gap-4 text-[11px] font-semibold text-emerald-400"><span class="bg-emerald-500/10 px-2 py-0.5 rounded">2 Goals</span><span class="bg-white/5 px-2 py-0.5 rounded text-zinc-400">77 OVR</span></div>
+                </div>
+                <div class="glass-card p-6 rounded-2xl relative overflow-hidden border-l-2 border-l-emerald-500">
+                    <span class="text-[10px] font-bold uppercase text-[#86868b] tracking-wider block mb-1">Position Variant: CB</span>
+                    <h4 class="text-xl font-bold text-white mb-2 heading-font">Venkata</h4>
+                    <p class="text-xs text-[#86868b] leading-relaxed">Anchor element across central safety grids, stabilizing clearances under high pressure limits.</p>
+                    <div class="mt-4 flex gap-4 text-[11px] font-semibold text-emerald-400"><span class="bg-emerald-500/10 px-2 py-0.5 rounded">1 Goal</span><span class="bg-white/5 px-2 py-0.5 rounded text-zinc-400">65 OVR</span></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="max-w-7xl mx-auto px-6 pt-12 pb-24 border-t border-white/5 text-center text-xs text-[#6e6e73]">
+        <p class="font-bold text-white/30 tracking-widest text-[11px] uppercase mb-2">WAMPIONS INTERACTIVE RECONSTRUCTION ENGINE</p>
+        <p class="max-w-xl mx-auto mb-1">Compiled in real-time under premium design specifications. Full asset array tracking fully loaded natively without third party dependence wrappers.</p>
+        <p>© 2026 Wampions Registry Hub. All system blocks verified and closed.</p>
+    </footer>
+
+    <script>
+        // Highly realized structured relational array databank
+        const MASTER_DATABANK = [
+            { id: "p1", name: "Mohith", rank: "01", pos: "ST", ovr: 85, metric: "9 Goals", category: "champ", tier: "Gold Rank 1 Finisher", stats: { "PAC (Pace)": 92, "SHO (Shooting)": 88, "DRI (Dribbling)": 84, "PHY (Physicality)": 84 }, glow: "rgba(16, 185, 129, 0.06)", verdict: "An absolute offensive masterclass engine. Bagged a total of 9 clinical conversions, maintaining unmatched structural presence inside the scoring frame to cement his Rank 1 status." },
+            { id: "p2", name: "Aryan", rank: "02", pos: "LW", ovr: 84, metric: "5 Goals, 6 Assists", category: "silver", tier: "Official Match MVP Selection", stats: { "PAS (Passing)": 88, "DRI (Dribbling)": 88, "PAC (Pace)": 86, "SHO (Shooting)": 82 }, glow: "rgba(245, 158, 11, 0.06)", verdict: "Exhibited hyper-complex playmaking coordination arrays. Accounted for an ultimate sum of 11 net goal contributions to win the official Match MVP award despite the bracket split." },
+            { id: "p3", name: "Maanas", rank: "03", pos: "GK", ovr: 77, metric: "6 Saves", category: "silver", tier: "Pro Defensive Framework Asset", stats: { "REF (Reflexes)": 83, "DIV (Diving)": 78, "HAN (Handling)": 77, "POS (Positioning)": 76 }, glow: "rgba(14, 165, 233, 0.05)", verdict: "The absolute backbone of the opposing defensive line. Recorded 6 exceptional reflex saves under high pressure to disrupt key attacking sequences from the winners." },
+            { id: "p4", name: "Wahill", rank: "04", pos: "ST", ovr: 81, metric: "4 Goals", category: "silver", tier: "Elite Tier Offensive Threat", stats: { "SHO (Shooting)": 81, "DRI (Dribbling)": 80, "PAC (Pace)": 77, "PAS (Passing)": 75 }, glow: "rgba(255, 255, 255, 0.02)", verdict: "Maintained strong attacking parameters, exhibiting clean final touch metrics that converted into 4 independent dangerous score completions." },
+            { id: "p5", name: "Arjuna", rank: "05", pos: "LM", ovr: 78, metric: "2 Goals", category: "silver", tier: "Pro Tactical Transition Link", stats: { "PAS (Passing)": 79, "PAC (Pace)": 78, "DRI (Dribbling)": 77, "DEF (Defending)": 75 }, glow: "rgba(255, 255, 255, 0.02)", verdict: "Balanced transition operator. Injected efficient speed vectors down wide lanes while stepping up to finish 2 distinct goals." },
+            { id: "p6", name: "Prithiv", rank: "06", pos: "GK", ovr: 76, metric: "2 Goals", category: "champ", tier: "Championship Winner Goalkeeper", stats: { "REF (Reflexes)": 84, "DIV (Diving)": 78, "HAN (Handling)": 74, "SPD (Speed)": 72 }, glow: "rgba(16, 185, 129, 0.06)", verdict: "The championship team's defensive guardian. Successfully protected the goal perimeter during tight intervals while scaling out to secure 2 goals." },
+            { id: "p7", name: "Tanush", rank: "07", pos: "RB", ovr: 77, metric: "2 Goals", category: "champ", tier: "Championship Engine Component", stats: { "PHY (Physicality)": 89, "PAC (Pace)": 85, "DEF (Defending)": 78, "DRI (Dribbling)": 74 }, glow: "rgba(16, 185, 129, 0.06)", verdict: "A tireless flank asset. Delivered extreme physical retention value over wide defensive and transition phases while slotting in 2 massive winning goals." },
+            { id: "p8", name: "Siddharth", rank: "08", pos: "CM", ovr: 74, metric: "1 Goal", category: "silver", tier: "Standard Central Stability Core", stats: { "DEF (Defending)": 75, "PHY (Physicality)": 72, "PAS (Passing)": 72, "PAC (Pace)": 71 }, glow: "rgba(255, 255, 255, 0.02)", verdict: "Maintained steady ball redistribution metrics across the center circle, providing strong physical cover and 1 goal." },
+            { id: "p9", name: "Venkata", rank: "09", pos: "CB", ovr: 65, metric: "1 Goal", category: "champ", tier: "Championship Defensive Anchor", stats: { "PAC (Pace)": 74, "DRI (Dribbling)": 68, "DEF (Defending)": 66, "PAS (Passing)": 63 }, glow: "rgba(16, 185, 129, 0.06)", verdict: "Held critical structural coordinates inside the champions' back line, neutralizing high-speed central attacks and producing 1 finish." }
+        ];
+
+        let currentFilter = 'all';
+
+        document.addEventListener("DOMContentLoaded", () => {
+            // High Speed Initializer Loader Animation Block
+            const progress = document.getElementById("progress-bar");
+            const loader = document.getElementById("preloader");
+            let percentageWidth = 0;
+            
+            const loaderInterval = setInterval(() => {
+                if(percentageWidth >= 100) {
+                    clearInterval(loaderInterval);
+                    loader.style.opacity = "0";
+                    setTimeout(() => {
+                        loader.remove();
+                        renderRegistryInterface();
+                        loadProfileToHUD(MASTER_DATABANK[5].id); // Hot-load Goalkeeper Prithiv right from startup
+                        initializeScrollReveal();
+                        runHeroCounters();
+                    }, 400);
+                } else {
+                    percentageWidth += 25;
+                    progress.style.width = percentageWidth + "%";
+                }
+            }, 15);
+        });
+
+        // Dynamic Interface Render Logic matching Category Filters
+        function renderRegistryInterface() {
+            const tableBody = document.getElementById("ranking-table-body");
+            tableBody.innerHTML = "";
+
+            MASTER_DATABANK.forEach(player => {
+                // Filter conditions matrix check
+                if (currentFilter !== 'all' && player.category !== currentFilter) return;
+
+                const tr = document.createElement("tr");
+                tr.id = `row-${player.id}`;
+                tr.className = "hover:bg-white/[0.02] cursor-pointer transition-all duration-200 group relative";
+                tr.onclick = () => loadProfileToHUD(player.id);
+
+                let statusBadgeHtml = `<span class="inline-block text-[9px] bg-zinc-900 text-[#aeaeaf] font-bold px-2.5 py-1 rounded-md tracking-wider">ACTIVE</span>`;
+                if(player.id === "p2") { // Aryan MVP
+                    statusBadgeHtml = `<span class="inline-block text-[9px] bg-gradient-to-r from-amber-500 to-amber-300 text-black font-black px-2.5 py-1 rounded-md tracking-wider shadow-md shadow-amber-500/10">MVP</span>`;
+                } else if(player.category === "champ") {
+                    statusBadgeHtml = `<span class="inline-block text-[9px] bg-gradient-to-r from-emerald-500 to-teal-500 text-black font-black px-2.5 py-1 rounded-md tracking-wider shadow-md shadow-emerald-500/10">WINNER</span>`;
+                }
+
+                tr.innerHTML = `
+                    <td class="py-4.5 px-5 text-center font-black text-white text-base group-hover:text-emerald-400 transition-colors">${player.rank}</td>
+                    <td class="py-4.5 px-4">
+                        <span class="block font-bold text-white tracking-tight text-sm group-hover:underline">${player.name}</span>
+                        <span class="text-[11px] text-[#86868b] uppercase tracking-wider font-semibold flex items-center gap-1">
+                            <span class="w-1 h-1 rounded-full ${player.category === 'champ' ? 'bg-emerald-400' : 'bg-[#6e6e73]'}"></span>
+                            ${player.pos} // System Core
+                        </span>
+                    </td>
+                    <td class="py-4.5 px-4">
+                        <span class="text-xs bg-white/5 border border-white/5 text-zinc-300 px-2.5 py-1 rounded-lg font-bold">${player.metric}</span>
+                    </td>
+                    <td class="py-4.5 px-4 text-center">${statusBadgeHtml}</td>
+                `;
+                tableBody.appendChild(tr);
+            });
+        }
+
+        // Live Action HUD Loader Matrix System
+        function loadProfileToHUD(id) {
+            const player = MASTER_DATABANK.find(p => p.id === id);
+            if(!player) return;
+
+            // Cycle out and cycle in standard row highlights
+            MASTER_DATABANK.forEach(p => {
+                const elementRow = document.getElementById(`row-${p.id}`);
+                if(elementRow) elementRow.classList.remove("active-row");
+            });
+            const targetRowSelected = document.getElementById(`row-${id}`);
+            if(targetRowSelected) targetRowSelected.classList.add("active-row");
+
+            // String parameter injections
+            document.getElementById("hud-name").innerText = player.name;
+            document.getElementById("hud-pos").innerText = player.pos;
+            document.getElementById("hud-ovr").innerText = player.ovr;
+            document.getElementById("hud-tier").innerText = player.tier;
+            document.getElementById("hud-verdict").innerText = `"${player.verdict}"`;
+            
+            // Adjust glowing backdrop vector mesh dynamic parameters
+            document.getElementById("hud-accent-glow").style.backgroundColor = player.glow;
+
+            // Style custom OVR colors depending on elite metric profiles
+            const ovrText = document.getElementById("hud-ovr");
+            if (player.id === "p2") {
+                ovrText.className = "text-4xl font-black heading-font tracking-tighter text-amber-400 drop-shadow-[0_0_15px_rgba(245,158,11,0.25)]";
+            } else if (player.category === "champ") {
+                ovrText.className = "text-4xl font-black heading-font tracking-tighter text-emerald-400 drop-shadow-[0_0_15px_rgba(16,185,129,0.25)]";
+            } else {
+                ovrText.className = "text-4xl font-black heading-font tracking-tighter text-white";
+            }
+
+            // Map Attributes frameworks bars dynamically
+            const container = document.getElementById("hud-stats-container");
+            container.innerHTML = "";
+
+            Object.entries(player.stats).forEach(([label, value]) => {
+                const scalePercentage = Math.min((value / 100) * 100, 100);
+                
+                const statBlock = document.createElement("div");
+                statBlock.className = "space-y-1.5";
+                
+                // Color configuration variables depending on category status tags
+                let barColor = "bg-white";
+                if(player.id === "p2") barColor = "bg-amber-400";
+                else if(player.category === "champ") barColor = "bg-emerald-400";
+
+                statBlock.innerHTML = `
+                    <div class="flex justify-between text-xs font-semibold">
+                        <span class="text-[#86868b] uppercase tracking-wider text-[10px] font-bold">${label}</span>
+                        <span class="text-white font-black">${value}</span>
+                    </div>
+                    <div class="h-[4px] w-full bg-white/5 rounded-full overflow-hidden">
+                        <div class="h-full ${barColor} rounded-full transition-all duration-600 ease-out" style="width: 0%;" id="bar-${id}-${label.substring(0,3)}"></div>
+                    </div>
+                `;
+                container.appendChild(statBlock);
+
+                // Initialize expansion execution flow animation 
+                setTimeout(() => {
+                    const TargetBarElement = document.getElementById(`bar-${id}-${label.substring(0,3)}`);
+                    if(TargetBarElement) TargetBarElement.style.width = scalePercentage + "%";
+                }, 40);
+            });
+        }
+
+        // Filter Sorting Execution Function
+        function filterRegistry(filterType) {
+            currentFilter = filterType;
+            
+            // Cycle tab class selectors
+            document.querySelectorAll(".tab-btn").forEach(btn => {
+                btn.classList.remove("active-tab", "text-white");
+                btn.classList.add("text-[#86868b]");
+            });
+            
+            const targetedTab = document.getElementById(`tab-${filterType}`);
+            targetedTab.classList.add("active-tab", "text-white");
+            targetedTab.classList.remove("text-[#86868b]");
+
+            renderRegistryInterface();
+            
+            // Auto re-focus display container window to maintain structural layout balance
+            const activeSubgroup = MASTER_DATABANK.filter(p => filterType === 'all' || p.category === filterType);
+            if(activeSubgroup.length > 0) {
+                loadProfileToHUD(activeSubgroup[0].id);
+            }
+        }
+
+        // Hero Numerical Stat Incrementor Engine
+        function runHeroCounters() {
+            const targets = document.querySelectorAll("[data-target]");
+            targets.forEach(counter => {
+                const numericLimit = +counter.getAttribute("data-target");
+                let internalVal = 0;
+                const incrementSpeed = numericLimit / 25;
+                
+                const execCounter = () => {
+                    if(internalVal < numericLimit) {
+                        internalVal += Math.ceil(incrementSpeed);
+                        if(internalVal > numericLimit) internalVal = numericLimit;
+                        counter.innerText = internalVal;
+                        setTimeout(execCounter, 30);
+                    } else {
+                        counter.innerText = numericLimit;
+                    }
+                };
+                execCounter();
+            });
+        }
+
+        // Scroll Animation Hooks Observer Frame
+        function initializeScrollReveal() {
+            const elements = document.querySelectorAll(".reveal");
+            const observerInstance = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if(entry.isIntersecting) {
+                        entry.target.classList.add("active");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.05 });
+            
+            elements.forEach(el => observerInstance.observe(el));
+        }
+    </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WAMPIONS // ENGINE V2</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700&family=Inter:wght@300;400;600;800&display=swap');
+        
+        body { background: #030303; color: #fff; font-family: 'Inter', sans-serif; }
+        .heading-font { font-family: 'Space Grotesk', sans-serif; }
+
+        /* The Depth-Layering Engine */
+        .glass-depth {
+            background: rgba(10, 10, 12, 0.7);
+            backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Scan-line Effect Engine */
+        .scan-line {
+            background: linear-gradient(transparent 50%, rgba(16, 185, 129, 0.02) 50%);
+            background-size: 100% 4px;
+            pointer-events: none;
+        }
+
+        .active-row {
+            background: rgba(16, 185, 129, 0.06) !important;
+            border-left: 3px solid #10b981 !important;
+        }
+
+        .stat-bar { transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
+    </style>
+</head>
+<body class="min-h-screen scan-line">
+
+    <div class="max-w-7xl mx-auto px-6 py-12">
+        <header class="flex justify-between items-end mb-16">
+            <div>
+                <h1 class="text-6xl font-black heading-font tracking-tighter text-white">WAMPIONS<span class="text-emerald-500">.</span></h1>
+                <p class="text-emerald-500 font-bold tracking-[0.2em] uppercase text-xs mt-2 italic">Performance Analytics Engine // Ver 2.6</p>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <div class="lg:col-span-5 space-y-4" id="roster">
+                <!-- Roster Data Injected Here -->
+            </div>
+
+            <div class="lg:col-span-7">
+                <div class="glass-depth p-10 rounded-[2rem] sticky top-8">
+                    <div class="flex justify-between items-start mb-10">
+                        <div>
+                            <h2 id="hud-name" class="text-5xl font-black heading-font tracking-tighter uppercase">Select Unit</h2>
+                            <p id="hud-pos" class="text-emerald-500 font-bold uppercase tracking-widest text-xs mt-2">Ready</p>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-[10px] text-zinc-500 uppercase font-bold">Overall</span>
+                            <div id="hud-ovr" class="text-6xl font-black heading-font text-white">--</div>
+                        </div>
+                    </div>
+                    
+                    <div id="stats-container" class="space-y-6">
+                        <!-- Stats Injected Here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Data Registry
+        const MASTER_DATABANK = [
+            { name: "Mohith", pos: "Striker", ovr: 85, stats: { PAC: 92, SHO: 88, DRI: 84, PHY: 84 } },
+            { name: "Aryan", pos: "Winger", ovr: 84, stats: { PAS: 88, DRI: 88, PAC: 86, SHO: 82 } },
+            { name: "Maanas", pos: "Goalkeeper", ovr: 77, stats: { REF: 83, DIV: 78, HAN: 77, POS: 76 } },
+            { name: "Prithiv", pos: "Goalkeeper", ovr: 76, stats: { REF: 84, DIV: 78, HAN: 74, SPD: 72 } }
+        ];
+
+        const rosterEl = document.getElementById('roster');
+        const statsEl = document.getElementById('stats-container');
+
+        MASTER_DATABANK.forEach((p, idx) => {
+            const div = document.createElement('div');
+            div.className = "glass-depth p-6 rounded-2xl cursor-pointer hover:bg-emerald-900/10 transition-all";
+            div.innerHTML = `<h4 class="font-bold text-lg">${p.name}</h4><p class="text-xs text-zinc-500 uppercase tracking-widest">${p.pos}</p>`;
+            div.onclick = () => updateHUD(p, div);
+            rosterEl.appendChild(div);
+        });
+
+        function updateHUD(p, el) {
+            document.querySelectorAll('.glass-depth').forEach(g => g.classList.remove('active-row'));
+            el.classList.add('active-row');
+            
+            document.getElementById('hud-name').innerText = p.name;
+            document.getElementById('hud-pos').innerText = p.pos;
+            document.getElementById('hud-ovr').innerText = p.ovr;
+            
+            statsEl.innerHTML = Object.entries(p.stats).map(([k, v]) => `
+                <div class="group">
+                    <div class="flex justify-between text-[10px] font-bold uppercase tracking-widest mb-2 text-zinc-400"><span>${k}</span><span>${v}</span></div>
+                    <div class="h-1.5 w-full bg-zinc-900 rounded-full overflow-hidden">
+                        <div class="stat-bar h-full bg-emerald-500 rounded-full" style="width: 0%" data-val="${v}%"></div>
+                    </div>
+                </div>
+            `).join('');
+            
+            setTimeout(() => {
+                document.querySelectorAll('.stat-bar').forEach(b => b.style.width = b.dataset.val);
+            }, 50);
+        }
+    </script>
+</body>
+</html>
